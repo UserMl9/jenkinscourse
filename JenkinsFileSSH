@@ -1,0 +1,8 @@
+node {
+  stage('Stage with Git') {  
+    sshagent (credentials: ['github-key']) {
+      // With the following command the last commit id of the repository that is specified
+      sh 'git ls-remote -h --refs git@github.com:UserML9/jenkinscourse.git master |awk "{print $1}"'
+    }
+  }
+}
