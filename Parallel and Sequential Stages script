@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    stages {
+        stage('Sequential') {
+            stages {
+                stage('Sequential 1') {
+                    steps {
+                        echo "Sequential: Part 1"
+                    }
+                }
+                stage('Sequential 2') {
+                    steps {
+                        echo "Sequential: Part 2"
+                    }
+                }
+                stage('Parallel inside of Sequential ') {
+                    parallel {
+                        stage('Parallel 1') {
+                            steps {
+                                echo "Parallel in Sequential : Part 1"
+                            }
+                        }
+                        stage('Parallel 2') {
+                            steps {
+                                echo "Parallel in Sequential : Part 2"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
