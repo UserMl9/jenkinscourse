@@ -1,0 +1,47 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Build') { 
+            steps {
+                echo 'Building the Application' 
+            }
+        }
+        stage('Test') { 
+            steps {
+                echo 'Start the unit testing process' 
+            }
+        }
+        stage('Deploy') { 
+            steps {
+                echo 'Deploying to development area' 
+            }
+        }
+    }
+}
+
+
+
+pipeline {
+    agent any 
+    stages {
+        stage('Build') { 
+            steps {
+                sh 'echo "Building the Application"'
+		                 sh '''
+                echo "Multiple shell steps also work"
+			                  pwd
+             '''
+            }
+        }
+        stage('Test') { 
+            steps {
+                echo 'Start the unit testing process' 
+            }
+        }
+        stage('Deploy') { 
+            steps {
+                echo 'Deploying to development area' 
+            }
+        }
+    }
+}
