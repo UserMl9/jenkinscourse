@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage('Example') {
+            steps {
+                sh 'hello'
+            }
+        }
+    }
+    post { 
+        failure { 
+            echo 'This execution failed'
+        }
+    }
+}
+
+#Script with error for Post class
