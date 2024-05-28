@@ -1,0 +1,28 @@
+node {
+    def server = Artifactory.server('jenkinscourse.jfrog.io') // Artifactory server 'jenkinscourse'
+    def rtGradle = Artifactory.newGradleBuild()
+    def buildInfo = Artifactory.newBuildInfo()
+    
+    stage 'Compilation/Build'
+        git branch: 'main', url: 'https://github.com/macloujulian/gs-gradle.git'
+
+    stage 'Artifactory Configuration'
+        rtGradle.tool = 'gradle' // How do we assign the name of the tool in Jenkins in configuration
+        rtGradle.deployer repo:'default-gradle-dev-local',  server: server
+        rtGradle.resolver repo:'default-gradle-dev', server: server
+
+        stage('buildInfo Configuration') {
+            buildInfo.env.capture = true
+            buildInfo.env.filter.addInclude("*")
+        }
+
+        stage('Gradle extra configuration') {
+            rtGradle.usesPlugin = true // The plugin is already defined in the build script
+        }
+        stage('Execute Gradle') {
+            rtGradle.run rootDir: "artifactory/", tasks: 'clean artifactoryPublish', buildInfo: buildInfo
+        }
+        stage('Public buildInfo') {
+            server.publishBuildInfo buildInfo
+        }
+}
