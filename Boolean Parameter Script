@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Welcome to planet $planet"
+if [ "$agent" = "true" ]
+then
+  echo "Prepare for Mission Agent X, may the force be with you."
+else
+  echo "Enjoy the human planet, $name, try not to die."
+fi
+echo "..."
+sleep 10
+echo "Good luck! You'll need it." 
