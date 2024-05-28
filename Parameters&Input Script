@@ -1,0 +1,47 @@
+pipeline {
+    agent any
+    parameters {
+        string(name: 'PERSON', defaultValue: 'User', description: 'Who should I greet?')
+
+        booleanParam(name: 'FLAG', defaultValue: true, description: 'FLAG True?')
+
+        choice(name: 'Choice', choices: ['A', 'B', 'C'], description: 'Choose an option')
+    }
+    stages {
+        stage('Parameter Class') {
+            steps {
+                echo "Hello, how are you ${params.PERSON}"
+
+                echo "FLAG: ${params.FLAG}"
+
+                echo "Choice: ${params.Choice}"
+            }
+        }
+    }
+}
+
+
+pipeline {
+    agent any
+    stages {
+        stage('stage 1') { 
+            steps {
+                echo "stage 1 starts" 
+		     
+		            sh 'sleep 10'
+		        }
+	      }
+        stage('stage 2') {
+            input {
+                message "Continue the project?"
+                ok "Yes, continue please."
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'User', description: 'Who should I greet?')
+                }
+            }
+            steps {
+                echo "Hello, ${PERSON}, pleasure to meet you."
+            }
+        }
+    }
+}
