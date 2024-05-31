@@ -29,7 +29,7 @@ pipeline {
                 sh 'echo "Building the Application"'
 		                 sh '''
                 echo "Multiple shell steps also work"
-			                  pwd
+			pwd
              '''
             }
         }
