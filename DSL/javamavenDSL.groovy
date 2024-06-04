@@ -1,5 +1,5 @@
 job('Java Maven App DSL') {
-    description('Java Maven App with DSL for Jenkins Course')
+    description('Job of a Java application with Maven')
     scm {
         git('https://github.com/UserMl9/jenkinscourse/new/main', 'main') { node ->
             node / gitConfigName('DSL User')
@@ -17,7 +17,7 @@ job('Java Maven App DSL') {
         }
         shell('''
           echo "Delivery: Deploying the application" 
-          java -jar "/var/jenkins_home/workspace/Java Maven App DSL/target/my-app-1.0-SNAPSHOT.jar"
+          java -jar "/var/jenkins_home/workspace/Java Maven with App DSL/target/my-app-1.0-SNAPSHOT.jar"
         ''')  
     }
     publishers {
