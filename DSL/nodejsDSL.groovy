@@ -1,5 +1,5 @@
 job('Node.js App') {
-    description('Node js app for the jenkins course')
+    description('Node JS hello-world Application for Jenkins')
     scm {
         git('https://github.com/macloujulian/nodejsapp.git', 'master') { node ->
             node / gitConfigName('UserMl9')
