@@ -1,4 +1,4 @@
-job('Node.js App') {
+job('Node.js App DSL') {
     description('Node JS hello-world Application for Jenkins')
     scm {
         git('https://github.com/macloujulian/nodejsapp.git', 'master') { node ->
