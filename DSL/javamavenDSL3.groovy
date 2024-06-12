@@ -50,7 +50,7 @@ job('Test Job Hello World'){
     description('Test Job Hello World')
     steps {
         shell('''
-            echo "Hello World!!" 
+            echo "Hello World!!!" 
         ''')  
     }
 }
