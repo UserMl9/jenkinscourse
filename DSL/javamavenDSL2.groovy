@@ -17,7 +17,7 @@ job('Java Maven App DSL2') {
         }
         shell('''
           echo "Delivery: Deploying the application" 
-          java -jar "/var/jenkins_home/workspace/Java Maven with App DSL/target/my-app-1.0-SNAPSHOT.jar"
+          java -jar "/var/jenkins_home/workspace/Java Maven with App DSL2/target/my-app-1.0-SNAPSHOT.jar"
         ''')  
     }
     publishers {
