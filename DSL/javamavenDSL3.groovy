@@ -2,7 +2,7 @@ job('Java Maven App DSL3') {
     description('Job of a Java application with Maven')
     scm {
         git('https://github.com/UserMl9/jenkinscourse/new/main', 'main') { node ->
-            node / gitConfigName('DSL User')
+            node / gitConfigName('UserMl9')
             node / gitConfigEmail('aprendizajeml9@gmail.com')
         }
     }
