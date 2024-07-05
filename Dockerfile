@@ -1,6 +1,5 @@
-FROM node:12
-WORKDIR /appnodejs
-ADD . /appnodejs
-RUN npm install
+FROM maven:3-alpine
+WORKDIR /appmavenjenkins
+ADD . /appmavenjenkins
 EXPOSE 3000
-CMD npm start
+CMD jenkins/scripts/deliver.sh
