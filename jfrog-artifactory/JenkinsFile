@@ -4,7 +4,7 @@ node {
     def buildInfo = Artifactory.newBuildInfo()
     
     stage 'Compilation/Build'
-        git branch: 'main', url: 'https://github.com/macloujulian/gs-gradle.git'
+        git branch: 'main', url: 'https://github.com/UserMl9/gs-gradle.git'
 
     stage 'Artifactory Configuration'
         rtGradle.tool = 'gradle' // How do we assign the name of the tool in Jenkins in configuration
